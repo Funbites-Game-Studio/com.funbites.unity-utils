@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine.Events;
 
-namespace ScriptUtils.Events {
+namespace Funbites.UnityUtils.Events
+{
     [Serializable]
     public class ObjectEvent : UnityEvent<object> { }
 }

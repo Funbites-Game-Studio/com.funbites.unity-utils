@@ -1,7 +1,9 @@
 {
-    "name": "Funbites.UnityUtils",
+    "name": "Funbites.UnityUtils.Editor",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

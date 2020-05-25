@@ -5,6 +5,5 @@ using UnityEngine.Events;
 namespace Funbites.UnityUtils.Events
 {
     [Serializable]
-    public class GameObjectEvent : UnityEvent<GameObject> {
-    }
+    public class Vector2Event : UnityEvent<Vector2> { }
 }
