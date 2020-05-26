@@ -1,12 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
-
-namespace ScriptUtils
+﻿namespace Funbites.UnityUtils.Events
 {
-    public class OnDisableEvent : MonoBehaviour
+    public class OnDisableEvent : UnityEngine.MonoBehaviour
     {
-        [SerializeField]
-        private UnityEvent m_onDisable;
+        [UnityEngine.SerializeField]
+        private UnityEngine.Events.UnityEvent m_onDisable = null;
 
         private void OnDisable()
         {

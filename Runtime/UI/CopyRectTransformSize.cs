@@ -1,13 +1,16 @@
 ﻿using Sirenix.OdinInspector;
-using UnityEngine;
 
-namespace ScriptUtils
+namespace Funbites.UnityUtils
 {
-    [RequireComponent(typeof(RectTransform)), DisallowMultipleComponent]
-    public class CopyRectTransformSize : MonoBehaviour
+    using SerializeField = UnityEngine.SerializeField;
+    using RectTransform = UnityEngine.RectTransform;
+    using Vector2 = UnityEngine.Vector2;
+
+    [UnityEngine.RequireComponent(typeof(RectTransform)), UnityEngine.DisallowMultipleComponent]
+    public class CopyRectTransformSize : UnityEngine.MonoBehaviour
     {
         [SerializeField, Required]
-        private RectTransform m_targetTransform;
+        private RectTransform m_targetTransform = null;
 
         [SerializeField, ToggleLeft]
         private bool m_copyHeight = true;
@@ -28,13 +31,13 @@ namespace ScriptUtils
             myTransform = GetComponent<RectTransform>();
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
-            var newSize = new Vector2();
-            newSize.x = m_copyWidth ? m_targetTransform.sizeDelta.x + m_widthOffset : myTransform.sizeDelta.x;
-            newSize.y = m_copyHeight ? m_targetTransform.sizeDelta.y + m_heightOffset : myTransform.sizeDelta.y;
-
-            myTransform.sizeDelta = newSize;
+            myTransform.sizeDelta = new Vector2
+            {
+                x = m_copyWidth ? m_targetTransform.sizeDelta.x + m_widthOffset : myTransform.sizeDelta.x,
+                y = m_copyHeight ? m_targetTransform.sizeDelta.y + m_heightOffset : myTransform.sizeDelta.y
+            };
         }
     }
 }

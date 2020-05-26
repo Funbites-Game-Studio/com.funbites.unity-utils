@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
-namespace Funbites.UnityUtils.Events
+﻿namespace Funbites.UnityUtils.Events
 {
     [System.Serializable]
-    public class RaycastHitEvent : UnityEvent<RaycastHit>
+    public class RaycastHitEvent : UnityEngine.Events.UnityEvent<UnityEngine.RaycastHit>
     {
 
     }

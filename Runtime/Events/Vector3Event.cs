@@ -1,9 +1,5 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
-
-namespace Funbites.UnityUtils.Events
+﻿namespace Funbites.UnityUtils.Events
 {
-    [Serializable]
-    public class Vector3Event : UnityEvent<Vector3> { }
+    [System.Serializable]
+    public class Vector3Event : UnityEngine.Events.UnityEvent<UnityEngine.Vector3> { }
 }

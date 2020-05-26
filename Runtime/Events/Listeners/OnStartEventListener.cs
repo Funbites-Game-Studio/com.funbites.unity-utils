@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-namespace Funbites.UnityUtils.Events
+﻿namespace Funbites.UnityUtils.Events
 {
-    public class OnStartEventListener : MonoBehaviour
+    public class OnStartEventListener : UnityEngine.MonoBehaviour
     {
-        [SerializeField]
+        [UnityEngine.SerializeField]
         private UnityEngine.Events.UnityEvent m_onStartEvent;
 
         private void Start() {

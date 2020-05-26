@@ -1,8 +1,5 @@
-﻿using System;
-using UnityEngine.Events;
-
-namespace Funbites.UnityUtils.Events
+﻿namespace Funbites.UnityUtils.Events
 {
-    [Serializable]
-    public class FloatEvent : UnityEvent<float> { }
+    [System.Serializable]
+    public class FloatEvent : UnityEngine.Events.UnityEvent<float> { }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using UnityEngine.Events;
-namespace Funbites.UnityUtils.Events
+﻿namespace Funbites.UnityUtils.Events
 {
-    [Serializable]
-    public class StringEvent : UnityEvent<string> { }
+    [System.Serializable]
+    public class StringEvent : UnityEngine.Events.UnityEvent<string> { }
 }

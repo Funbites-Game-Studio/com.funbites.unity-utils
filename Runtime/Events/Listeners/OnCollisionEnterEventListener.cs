@@ -3,8 +3,7 @@
     public class OnCollisionEnterEventListener : UnityEngine.MonoBehaviour {
         [UnityEngine.SerializeField]
         private CollisionEvent m_onCollisionEnter;
-        //TODO: Fix this
-        [UnityEngine.SerializeField]
+        [UnityEngine.SerializeField, Sirenix.OdinInspector.ValueDropdown("@Funbites.UnityUtils.Editor.OdinUtils.GetTags()")]
         private string m_tag = Constants.UntaggedTag;
 
         private void OnCollisionEnter(UnityEngine.Collision collision)

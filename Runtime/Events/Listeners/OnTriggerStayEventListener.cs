@@ -1,19 +1,20 @@
 ﻿namespace Funbites.UnityUtils.Events
 {
+    using SerializeField = UnityEngine.SerializeField;
     public class OnTriggerStayEventListener : UnityEngine.MonoBehaviour
     {
-        [UnityEngine.SerializeField]
+        
+        [SerializeField]
         private ColliderEvent m_onTriggerStay;
         [Sirenix.OdinInspector.ShowInInspector]
         public bool IsActive { get; set; } = true;
-        [UnityEngine.SerializeField]
+        [SerializeField]
         private float m_intervalInSeconds;
-        [UnityEngine.SerializeField, Sirenix.OdinInspector.ToggleLeft]
+        [SerializeField, Sirenix.OdinInspector.ToggleLeft]
         private bool m_triggerOnceInFrame;
-        //TODO: Fix this
-        [UnityEngine.SerializeField, Sirenix.OdinInspector.ValueDropdown("Funbites.UnityUtils.Editor.OdinUtils.GetTags")]
+        [SerializeField, Sirenix.OdinInspector.ValueDropdown("@Funbites.UnityUtils.Editor.OdinUtils.GetTags()")]
         private string m_tag = Constants.UntaggedTag;
-        [UnityEngine.SerializeField]
+        [SerializeField]
         private UnityEngine.LayerMask layerMask = -1;
 
         private float elapsedTime;

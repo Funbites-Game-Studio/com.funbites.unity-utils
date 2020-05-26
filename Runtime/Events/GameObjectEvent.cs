@@ -1,10 +1,6 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
-
-namespace Funbites.UnityUtils.Events
+﻿namespace Funbites.UnityUtils.Events
 {
-    [Serializable]
-    public class GameObjectEvent : UnityEvent<GameObject> {
+    [System.Serializable]
+    public class GameObjectEvent : UnityEngine.Events.UnityEvent<UnityEngine.GameObject> {
     }
 }
