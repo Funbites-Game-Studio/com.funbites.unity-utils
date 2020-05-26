@@ -1,4 +1,4 @@
-﻿namespace Funbites.Probability {
+﻿namespace Funbites.UnityUtils.Probability {
     
     using Sirenix.OdinInspector;
     using System;

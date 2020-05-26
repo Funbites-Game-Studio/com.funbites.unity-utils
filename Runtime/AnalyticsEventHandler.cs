@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Analytics;
-namespace ScriptUtils {
-    public class AnalyticsEventHandler : MonoBehaviour {
-        [SerializeField]
-        private string m_eventName;
-        [SerializeField]
-        private string[] m_parametersName;
+﻿namespace Funbites.UnityUtils.Events {
+    using Analytics = UnityEngine.Analytics.Analytics;
+    public class AnalyticsEventHandler : UnityEngine.MonoBehaviour {
+
+        [UnityEngine.SerializeField]
+        private string m_eventName = "EVENT_NAME";
+        [UnityEngine.SerializeField]
+        private string[] m_parametersName = null;
 
         private object[] parametersValue;
         public void LogAnalyticsCustomEvent() {
             if (m_parametersName.Length > 0) {
-                var parameters = new Dictionary<string, object>(m_parametersName.Length);
+                var parameters = new System.Collections.Generic.Dictionary<string, object>(m_parametersName.Length);
                 for (int i = 0; i < m_parametersName.Length; i++) {
                     parameters.Add(m_parametersName[i], parametersValue[i]);
                 }

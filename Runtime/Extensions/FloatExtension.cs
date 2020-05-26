@@ -1,5 +1,4 @@
-﻿
-namespace ScriptUtils {
+﻿namespace Funbites.UnityUtils {
     public static class FloatExtension {
 
         public static int Compare(float a, float b) {

@@ -3,7 +3,7 @@
     public class OnStartEventListener : UnityEngine.MonoBehaviour
     {
         [UnityEngine.SerializeField]
-        private UnityEngine.Events.UnityEvent m_onStartEvent;
+        private UnityEngine.Events.UnityEvent m_onStartEvent = null;
 
         private void Start() {
             m_onStartEvent.Invoke();

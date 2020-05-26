@@ -4,7 +4,7 @@
     public class OnTriggerEnterEventListener : UnityEngine.MonoBehaviour
     {
         [SerializeField]
-        private ColliderEvent on_TriggerEnter;
+        private ColliderEvent on_TriggerEnter = null;
         [SerializeField, Sirenix.OdinInspector.ValueDropdown("@Funbites.UnityUtils.Editor.OdinUtils.GetTags()")]
         private string m_tag = Constants.UntaggedTag;
         [SerializeField]

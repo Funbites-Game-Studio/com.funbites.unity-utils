@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-
-namespace ScriptUtils
+﻿namespace Funbites.UnityUtils
 {
+    using Color = UnityEngine.Color;
     public static class ColorExtensions
     {
         public static Color ChangeAlpha(this Color defaultColor, float alpha = 0)

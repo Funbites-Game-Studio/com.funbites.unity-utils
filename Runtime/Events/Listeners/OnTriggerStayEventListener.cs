@@ -5,13 +5,13 @@
     {
         
         [SerializeField]
-        private ColliderEvent m_onTriggerStay;
+        private ColliderEvent m_onTriggerStay = null;
         [Sirenix.OdinInspector.ShowInInspector]
         public bool IsActive { get; set; } = true;
         [SerializeField]
-        private float m_intervalInSeconds;
+        private float m_intervalInSeconds = 1;
         [SerializeField, Sirenix.OdinInspector.ToggleLeft]
-        private bool m_triggerOnceInFrame;
+        private bool m_triggerOnceInFrame = true;
         [SerializeField, Sirenix.OdinInspector.ValueDropdown("@Funbites.UnityUtils.Editor.OdinUtils.GetTags()")]
         private string m_tag = Constants.UntaggedTag;
         [SerializeField]
@@ -42,7 +42,7 @@
         }
         
         private bool ValidateCollider(UnityEngine.Collider other) {
-            return Extensions.LayerMaskExtensions.HasLayer(layerMask, other.gameObject.layer) &&
+            return LayerMaskExtensions.HasLayer(layerMask, other.gameObject.layer) &&
                 (string.IsNullOrEmpty(m_tag) || m_tag.GetHashCode() == Constants.UntaggedHash || other.CompareTag(m_tag));
         }
 
