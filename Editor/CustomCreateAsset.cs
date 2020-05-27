@@ -1,4 +1,5 @@
-﻿namespace Funbites.UnityUtils.Editor {
+﻿#if UNITY_EDITOR
+namespace Funbites.UnityUtils.Editor {
     public static class CustomCreateAsset {
         public static void CreateScriptableAssetInCurrentSelection(UnityEngine.ScriptableObject instance, string name) {
             var path = "Assets/";
@@ -17,3 +18,4 @@
         }
     }
 }
+#endif
