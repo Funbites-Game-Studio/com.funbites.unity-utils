@@ -1,12 +1,13 @@
-﻿using UnityEngine;
-
-namespace ScriptUtils
+﻿namespace Funbites.UnityUtils
 {
+
+    using UnityEngine;
+
     public static class TransformExtensions
     {
         public static Transform FindChildDeep(this Transform transform, string childName)
         {
-            var child = getChildByName(transform, childName);
+            var child = FindChildByName(transform, childName);
 
             return child;
         }
@@ -59,7 +60,7 @@ namespace ScriptUtils
             transform.localPosition = newPosition;
         }
 
-        private static Transform getChildByName(Transform transform, string childName)
+        private static Transform FindChildByName(Transform transform, string childName)
         {
             Transform child = null;
 
@@ -71,7 +72,7 @@ namespace ScriptUtils
                     child = c;
                     break;
                 } else {
-                    child = getChildByName(c, childName);
+                    child = FindChildByName(c, childName);
 
                     if (child != null)
                         break;
@@ -80,5 +81,28 @@ namespace ScriptUtils
 
             return child;
         }
+
+        public static Transform GetChildThatContains(this Transform transform, string nameSubWord)
+        {
+            Transform result = transform;
+            nameSubWord = nameSubWord.ToUpper();
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).name.ToUpper().Contains(nameSubWord))
+                {
+                    result = transform.GetChild(i);
+                    break;
+                }
+            }
+            return result;
+        }
+
+        public static void Reset(this Transform transform)
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+            transform.localScale = Vector3.one;
+        }
+
     }
 }
