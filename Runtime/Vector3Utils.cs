@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-
-namespace ScriptUtils
+﻿namespace Funbites.UnityUtils
 {
+    using UnityEngine;
     public static class Vector3Utils
     {
         public static Vector3 GameSpaceAngleToVector(float angle, int direction)
