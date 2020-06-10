@@ -41,10 +41,13 @@
     [System.Serializable]
     public abstract class BaseValueWithLerp<T> : ValueWithLerp<T> {
         [SerializeField]
-        private float m_t = 0;
+        protected float m_t = 0;
         public float t => m_t;
 
         public abstract T Value { get; }
+
+       
+
     }
 
     [System.Serializable]
@@ -66,6 +69,14 @@
         [SerializeField]
         private Color m_value = Color.white;
         public override Color Value => m_value;
+
+        public ColorWithT() { }
+
+        public ColorWithT(Color color, float t)
+        {
+            m_value = color;
+            m_t = t;
+        }
     }
 
     [System.Serializable]
