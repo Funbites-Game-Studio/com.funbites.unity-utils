@@ -45,11 +45,11 @@ namespace Funbites.UnityUtils.Editor
             var time = s_StartTimes[assembly];
             var timeSpan = DateTime.UtcNow - s_StartTimes[assembly];
             s_CompilationTotalTime += timeSpan.TotalMilliseconds;
-            s_BuildEvents.AppendFormat("{0:0.00}s {1}\n", timeSpan.TotalMilliseconds / 1000f, assembly.Substring(ScriptAssembliesPathLen, assembly.Length - ScriptAssembliesPathLen));
+            s_BuildEvents.AppendFormat("{0:0.00}s {1}\n", (timeSpan.TotalMilliseconds / 1000f).ToString(), assembly.Substring(ScriptAssembliesPathLen, assembly.Length - ScriptAssembliesPathLen));
         }
 
         static void AssemblyReloadEventsOnBeforeAssemblyReload() {
-            s_BuildEvents.AppendFormat("compilation total: {0:0.00}s\n", s_CompilationTotalTime / 1000f);
+            s_BuildEvents.AppendFormat("compilation total: {0:0.00}s\n", (s_CompilationTotalTime / 1000f).ToString());
             EditorPrefs.SetString(AssemblyReloadEventsEditorPref, DateTime.UtcNow.ToBinary().ToString());
             EditorPrefs.SetString(AssemblyCompilationEventsEditorPref, s_BuildEvents.ToString());
         }
@@ -63,7 +63,7 @@ namespace Funbites.UnityUtils.Editor
                 var time = DateTime.UtcNow - date;
                 var compilationTimes = EditorPrefs.GetString(AssemblyCompilationEventsEditorPref);
                 if (!string.IsNullOrEmpty(compilationTimes)) {
-                    Debug.Log("Compilation Report\n" + compilationTimes + "Assembly Reload Time: " + time.TotalSeconds + "s\n");
+                    Debug.Log($"Compilation Report\n {compilationTimes} Assembly Reload Time: { time.TotalSeconds.ToString() }s\n");
                 }
             }
         }
