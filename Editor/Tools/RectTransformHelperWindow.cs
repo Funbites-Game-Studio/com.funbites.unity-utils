@@ -58,6 +58,27 @@
         }
 
         [Button]
+        private void UpdateWidthAndHeightToResetScale(RectTransform target)
+        {
+            ValidateTarget(target);
+            if (target.anchorMin != target.anchorMax) throw new Exception("This function only works if the anchor is a fixed point.");
+            target.sizeDelta = new Vector2(target.sizeDelta.x * target.localScale.x, target.sizeDelta.y * target.localScale.y);
+            target.localScale = Vector3.one;
+        }
+
+        //[Button]
+        //private void SetAnchorToResetPosition(RectTransform target)
+        //{
+            //ValidateTarget(target);
+            //if (target.anchorMin != target.anchorMax) throw new Exception("This function only works if the anchor is a fixed point.");
+
+            //if (target.localScale != Vector3.one) throw new Exception("This function does not work for scaled objects... it is good to TODO... sorry");
+            //TODO: implement scale support
+            //target.pivot = -(target.anchoredPosition - target.rect.size * target.pivot) / target.rect.size;
+            //target.anchoredPosition = Vector2.zero;
+        //}
+
+        [Button]
         private void SetPivotToResetPosition(RectTransform target)
         {
             ValidateTarget(target);
