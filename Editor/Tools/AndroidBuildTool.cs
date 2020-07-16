@@ -111,6 +111,7 @@
                 options |= BuildOptions.Development;
                 options |= BuildOptions.ConnectWithProfiler;
                 options |= BuildOptions.AllowDebugging;
+                options |= BuildOptions.EnableDeepProfilingSupport;
             }
 
             // Build player.
