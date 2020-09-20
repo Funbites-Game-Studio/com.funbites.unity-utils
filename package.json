@@ -5,6 +5,9 @@
   "description": "Unity Utils Library",
   "unity": "2019.3",
   "unityRelease": "3f1",
+  "dependencies": {
+    "com.unity.editorcoroutines": "1.0.0"
+  },
   "keywords": [
     "utils"
   ],
