@@ -16,7 +16,7 @@ namespace Funbites.UnityUtils
 
         private static void AppendTwoDigitNumber(this StringBuilder sb, int number)
         {
-            if (number > 10)
+            if (number >= 10)
             {
                 sb.Append(number);
             } else
