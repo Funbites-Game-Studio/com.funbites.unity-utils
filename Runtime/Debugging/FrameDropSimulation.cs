@@ -1,4 +1,4 @@
-﻿namespace Funbites.UnityUtils.Debug {
+﻿namespace Funbites.UnityUtils.Debugging {
     public class FrameDropSimulation : UnityEngine.MonoBehaviour {
         [UnityEngine.SerializeField, UnityEngine.Range(.000001f, 30f)]
         private float m_seconds = 1f;
