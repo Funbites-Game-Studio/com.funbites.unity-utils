@@ -33,7 +33,7 @@ namespace Funbites.UnityUtils.Editor
         private void PostJson()
         {
             if (currentRequest != null) return;
-            currentRequest = EditorCoroutineUtility.StartCoroutine(WebRequestHelper.PostJson(m_url, m_headers, m_data, OnComplete), this);
+            currentRequest = EditorCoroutineUtility.StartCoroutine(WebRequestHelper.RequestJsonPost(m_url, m_headers, m_data, OnComplete), this);
         }
 
         [Button]
