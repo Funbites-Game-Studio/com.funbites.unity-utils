@@ -45,8 +45,12 @@ namespace Funbites.UnityUtils.Editor
 
         private void OnComplete(UnityWebRequest response)
         {
+#if UNITY_2020_1_OR_NEWER
+            if (response.result != UnityWebRequest.Result.Success)
+#else
             if (response.isNetworkError || response.isHttpError)
-            {
+#endif
+                {
                 Debug.Log(response.error);
             }
             else

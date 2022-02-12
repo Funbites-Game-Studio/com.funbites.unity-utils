@@ -79,7 +79,7 @@
 
         [ShowInInspector]
         private bool buildAppBundle = true;
-        [ShowInInspector, HideIf(nameof(buildAppBundle))]
+        [ShowInInspector]
         private bool splitApplicationBinary = true;
         [ShowInInspector]
         private bool runAfterBuild = true;
@@ -109,10 +109,8 @@
                 AddressableAssetSettings.BuildPlayerContent();
             }
             EditorUserBuildSettings.buildAppBundle = buildAppBundle;
-            if (!buildAppBundle)
-            {
-                PlayerSettings.Android.useAPKExpansionFiles = splitApplicationBinary;
-            }
+            PlayerSettings.Android.useAPKExpansionFiles = splitApplicationBinary;
+            
 
             // Get filename.
             List<string> scenes = new List<string>();
@@ -137,12 +135,19 @@
             }
 
             // Build player.
+            UpdateBundleVersion(currentVersion);
             BuildPipeline.BuildPlayer(scenes.ToArray(), fileName, BuildTarget.Android, options);
-            PlayerSettings.bundleVersion = currentVersion + "." + PlayerSettings.Android.bundleVersionCode.ToString();
+            
             if (!isDevelopmentBuild)
             {
                 PlayerSettings.Android.bundleVersionCode += 1;
+                UpdateBundleVersion(currentVersion);
             }
+        }
+
+        private static void UpdateBundleVersion(string currentVersion)
+        {
+            PlayerSettings.bundleVersion = currentVersion + "." + PlayerSettings.Android.bundleVersionCode.ToString();
         }
     }
 }
