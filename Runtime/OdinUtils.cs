@@ -1,4 +1,4 @@
-﻿namespace Funbites.UnityUtils.Editor
+﻿namespace Funbites.UnityUtils
 {
     public static class OdinUtils
     {
@@ -7,7 +7,11 @@
 
         public static string[] GetTags()
         {
+#if UNITY_EDITOR
             return UnityEditorInternal.InternalEditorUtility.tags;
+#else
+            throw new System.NotImplementedException("Editor only function.");
+#endif
         }
     }
 }
