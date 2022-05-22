@@ -1,6 +1,5 @@
-namespace Funbites.UnityUtils.Editor
+namespace Funbites.UnityUtils
 {
-
     using System.IO;
     using System.Text;
     using System.Threading.Tasks;
@@ -10,13 +9,6 @@ namespace Funbites.UnityUtils.Editor
 
         private const int DefaultBufferSize = 4096;
         private const FileOptions DefaultOptions = FileOptions.Asynchronous | FileOptions.SequentialScan;
-
-
-        public static void ShowExplorer(string itemPath)
-        {
-            itemPath = itemPath.Replace(@"/", @"\");
-            System.Diagnostics.Process.Start("explorer.exe", "/select," + itemPath);
-        }
 
         public static async Task<string> ReadAllTextAsync(string filePath)
         {

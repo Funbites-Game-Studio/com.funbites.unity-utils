@@ -12,8 +12,8 @@
 
         private void ValidateTarget(RectTransform target)
         {
-            if (target == null) throw new Exception("Set a target to perform operation.");
-            if (target.parent == null) throw new Exception("Target RectTransform must have a parent RectTransform.");
+            if (target == null) throw new InvalidOperationException("Set a target to perform operation.");
+            if (target.parent == null) throw new InvalidOperationException("Target RectTransform must have a parent RectTransform.");
         }
 
         [Button]
@@ -61,29 +61,17 @@
         private void UpdateWidthAndHeightToResetScale(RectTransform target)
         {
             ValidateTarget(target);
-            if (target.anchorMin != target.anchorMax) throw new Exception("This function only works if the anchor is a fixed point.");
+            if (target.anchorMin != target.anchorMax) throw new InvalidOperationException("This function only works if the anchor is a fixed point.");
             target.sizeDelta = new Vector2(target.sizeDelta.x * target.localScale.x, target.sizeDelta.y * target.localScale.y);
             target.localScale = Vector3.one;
         }
-
-        //[Button]
-        //private void SetAnchorToResetPosition(RectTransform target)
-        //{
-            //ValidateTarget(target);
-            //if (target.anchorMin != target.anchorMax) throw new Exception("This function only works if the anchor is a fixed point.");
-
-            //if (target.localScale != Vector3.one) throw new Exception("This function does not work for scaled objects... it is good to TODO... sorry");
-            //TODO: implement scale support
-            //target.pivot = -(target.anchoredPosition - target.rect.size * target.pivot) / target.rect.size;
-            //target.anchoredPosition = Vector2.zero;
-        //}
 
         [Button]
         private void SetPivotToResetPosition(RectTransform target)
         {
             ValidateTarget(target);
-            if (target.anchorMin != target.anchorMax) throw new Exception("AnchorMin and AnchorMax must be the same for this operation");
-            if (target.localScale != Vector3.one) throw new Exception("This function does not work for scaled objects... it is good to TODO... sorry");
+            if (target.anchorMin != target.anchorMax) throw new InvalidOperationException("AnchorMin and AnchorMax must be the same for this operation");
+            if (target.localScale != Vector3.one) throw new InvalidOperationException("This function does not work for scaled objects... it is good to TODO... sorry");
             //TODO: implement scale support
             target.pivot = -(target.anchoredPosition - target.rect.size * target.pivot) / target.rect.size;
             target.anchoredPosition = Vector2.zero;
